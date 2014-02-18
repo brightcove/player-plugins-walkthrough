@@ -157,12 +157,12 @@ Now change the event your listening for so that it appears at the end and disapp
   });
 ```
 
-Great, now you've created something interesting and should have an html page that resembles [this](in-page-plugin.html).
+Great, now you've created something interesting and should have an html page that resembles [this](http://brightcove.github.io/player-plugins-walkthrough/in-page-plugin.html).
 
 But, suppose you want to re-use this same code in all your players.  Adding this to every page would be a pain.
 Let's make this code re-usable by coverting it into a vjs plugin instead.  It's really simple. Just wrap your 
-script in a function that takes a an optional 'options' object and gets a reference to the player as through 
-'this'. Once its ready, you let the player know by calling back with your plugins name. You're resulting script 
+script in a function that takes a an optional 'options' object and gets a reference to the player through 
+`this`. Once its ready, you let the player know by calling back with your plugins name. You're resulting script 
 would look like the following:
 ```javascript
 (function(vjs) {
@@ -191,8 +191,8 @@ would look like the following:
 })(window.videojs);
 ```
 
-Save the above javascript in a file (or you can download this [file](overlay.js)).  Then update your html page to
-source that file and invoke the plugin in your page.  Your html becomes [this](vjs-plugin.html):
+Save the above javascript in a file (or you can download this [file](http://brightcove.github.io/player-plugins-walkthrough/overlay.js).  Then update your html page to
+source that file and invoke the plugin in your page.  Your html becomes [this](http://brightcove.github.io/player-plugins-walkthrough/vjs-plugin.html):
 ```html
 <!DOCTYPE html>
 <html>
