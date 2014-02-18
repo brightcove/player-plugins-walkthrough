@@ -5,16 +5,22 @@ To follow along, you'll need:
  * A computer
  * A terminal application with [CURL](http://curl.haxx.se)
  * A text editor
+ * Familiarity with HTML/CSS/Javascript
  * A webserver capable of hosting and serving html
+
+## Documentation
+ * [Player Service Tour](http://docs.brightcove.com/en/video-cloud/players/guides/playertour.html)
+ * [Using CURL](http://curl.haxx.se/docs/manpage.html)
+ * [VideoJS Designer](http://designer.videojs.com/)
+ * [VideoJS Plugins](https://github.com/videojs/video.js/blob/master/docs/guides/plugins.md)
 
 Curl the in-page embed code for a player and create an HTML file from it:
 ```bash
+mkdir ~/workshop
 curl http://players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/in_page.embed > ~/workshop/plugin.html
 ```
 
-####
-
-Update the html to use proper syntax and size it to appear:
+Update the html page created to use proper html syntax and size the player with CSS:
 ```html
 <!DOCTYPE html>
 <html>
@@ -128,3 +134,5 @@ Add an overlay to appear onLoad with the following additional javascript and css
   color: #ff0000;
 }
 ```
+
+Now change the event your listening for so that it appears at the end:
