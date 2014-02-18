@@ -94,7 +94,8 @@ Give the player an id so that we can reference it logically within the page:
 ```
 
 
-Open the web inspector console, and try these commands:
+Serve your new page upusing a webserver and open the web inspector console, and use these commands to interact
+with the player:
 ```javascript
 //Get a reference to the player
 var player = videojs('player');
@@ -108,7 +109,7 @@ player.currentTime(40);
 player.volume(0.5);
 ```
 
-Add an overlay to appear onLoad with the following additional javascript and css:
+Add an overlay to appear onLoad adding the following additional javascript and css:
 ```javascript
 <script>
   var 
@@ -135,4 +136,103 @@ Add an overlay to appear onLoad with the following additional javascript and css
 }
 ```
 
-Now change the event your listening for so that it appears at the end:
+Now change the event your listening for so that it appears at the end and disappears on replay.
+```html
+<script>
+  var 
+    player = videojs('player'),
+    overlay = document.createElement('div');
+  overlay.className = 'overlay vjs-hidden';
+  overlay.innerHTML = 'much text';
+  player.on('ended', function() {
+    // if the overlay isn't already showing, show it
+    if (/vjs-hidden/.test(overlay.className)) {
+      overlay.className = overlay.className.replace(/\s?vjs-hidden/, '');
+    }
+    player.el().appendChild(overlay);
+  });
+
+  player.on('playing', function() {
+    // if the overlay isn't already hidden, hide it
+    if (!(/vjs-hidden/).test(overlay.className)) {
+      overlay.className += ' vjs-hidden';
+    }
+  });
+</script>
+```
+
+Great, now you've created something interesting and should have an html page that resembles [this](in-page-plugin.html).
+
+But, suppose you want to re-use this same code in all your players.  Adding this to every page would be a pain.
+Let's make this code re-usable by coverting it into a vjs plugin instead.  It's really simple. Just wrap your 
+script in a function that takes a an optional 'options' object and gets a reference to the player as through 
+'this'. Once its ready, you let the player know by calling back with your plugins name. You're resulting script 
+would look like the following:
+```javascript
+<script>
+(function(vjs) {
+  overlayPlugin = function(options) {
+    var 
+      player = this
+      overlay = document.createElement('div');
+    overlay.className = 'overlay vjs-hidden';
+    overlay.innerHTML = 'much text';
+    player.on('ended', function() {
+      // if the overlay isn't already showing, show it
+      if (/vjs-hidden/.test(overlay.className)) {
+        overlay.className = overlay.className.replace(/\s?vjs-hidden/, '');
+      }
+      player.el().appendChild(overlay);
+    });
+
+    player.on('playing', function() {
+      // if the overlay isn't already hidden, hide it
+      if (!(/vjs-hidden/).test(overlay.className)) {
+        overlay.className += ' vjs-hidden';
+      }
+    });
+  };
+  vjs.plugin('overlayPlugin', overlayPlugin);
+})(window.videojs);
+</script>
+```
+
+Save the above javascript in a file (or you can download this [file](overlay.js)).  Then update your html page to
+source that file and invoke the plugin in your page.  Your html becomes [this](vjs-plugin.html):
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<link href="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.css" rel="stylesheet">
+<style>
+.video-js{height:360px; width:480px;}
+.vjs-big-play-button{background: #ff0000;}
+.vjs-control-bar{background: #ff0000;}
+.overlay {
+  height:50px; 
+  width:480px;
+  text-align:center;
+  font-size:24pt;
+  color: #ff0000;
+}
+</style>
+</head>
+<body>
+<video 
+  id="player"
+  data-account="1655482059001"
+  data-player="83f4546f-a296-43cb-8872-9c75d1c1cc21"
+  data-embed="default"
+  data-id=""
+  class="video-js" controls></video>
+<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/node_modules/video.js/dist/video-js/video.js"></script>
+<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.js"></script>
+<script src="./overlay.js"></script>
+<script>
+  videojs('player').overlayPlugin();
+</script>
+</body>
+</html>
+```
+
+Now you've got a re-usable videoJS plugin that can be added to any Brightcove player.
