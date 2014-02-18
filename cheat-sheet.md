@@ -169,7 +169,6 @@ script in a function that takes a an optional 'options' object and gets a refere
 'this'. Once its ready, you let the player know by calling back with your plugins name. You're resulting script 
 would look like the following:
 ```javascript
-<script>
 (function(vjs) {
   overlayPlugin = function(options) {
     var 
@@ -194,7 +193,6 @@ would look like the following:
   };
   vjs.plugin('overlayPlugin', overlayPlugin);
 })(window.videojs);
-</script>
 ```
 
 Save the above javascript in a file (or you can download this [file](overlay.js)).  Then update your html page to
