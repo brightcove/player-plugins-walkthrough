@@ -111,7 +111,6 @@ player.volume(0.5);
 
 Add an overlay to appear onLoad adding the following additional javascript and css:
 ```javascript
-<script>
   var 
     player = videojs('player'),
     overlay = document.createElement('div');
@@ -124,7 +123,6 @@ Add an overlay to appear onLoad adding the following additional javascript and c
     }
     player.el().appendChild(overlay);
   });
-</script>
 ```
 ```css
 .overlay {
@@ -137,8 +135,7 @@ Add an overlay to appear onLoad adding the following additional javascript and c
 ```
 
 Now change the event your listening for so that it appears at the end and disappears on replay.
-```html
-<script>
+```javascript
   var 
     player = videojs('player'),
     overlay = document.createElement('div');
@@ -158,7 +155,6 @@ Now change the event your listening for so that it appears at the end and disapp
       overlay.className += ' vjs-hidden';
     }
   });
-</script>
 ```
 
 Great, now you've created something interesting and should have an html page that resembles [this](in-page-plugin.html).
