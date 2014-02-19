@@ -201,8 +201,8 @@ would look like the following:
 })(window.videojs);
 ```
 
-Save the above javascript in a file (or you can download this [file](http://brightcove.github.io/player-plugins-walkthrough/overlay.js).  Then update your html page to
-source that file and invoke the plugin in your page.  Your html becomes [this](http://brightcove.github.io/player-plugins-walkthrough/vjs-plugin.html):
+Save the above javascript in a file (or you can download this [file](http://brightcove.github.io/player-plugins-walkthrough/overlay.js)).  Now, update your html page to
+source this file and invoke the plugin.  Your html becomes [this](http://brightcove.github.io/player-plugins-walkthrough/vjs-plugin.html):
 ```html
 <!DOCTYPE html>
 <html>
