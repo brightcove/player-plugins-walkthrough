@@ -117,14 +117,14 @@ player.currentTime(40);
 player.volume(0.5);
 ```
 
-Add an overlay to appear onLoad adding the following additional javascript and css:
+Add an overlay to appear on html5 video tag's 'loadstart' event by adding the following additional javascript and css:
 ```javascript
   var 
     player = videojs('player'),
     overlay = document.createElement('div');
   overlay.className = 'overlay vjs-hidden';
   overlay.innerHTML = 'much text';
-  player.on('ended', function() {
+  player.on('loadstart', function() {
     // if the overlay isn't already showing, show it
     if (/vjs-hidden/.test(overlay.className)) {
       overlay.className = overlay.className.replace(/\s?vjs-hidden/, '');
@@ -141,6 +141,8 @@ Add an overlay to appear onLoad adding the following additional javascript and c
   color: #ff0000;
 }
 ```
+
+You should now see the overlay appear immediately on load of the player content in your [hosted page](http://brightcove.github.io/player-plugins-walkthrough/load-start.html).
 
 Now change the event your listening for so that it appears at the end and disappears on replay.
 ```javascript
