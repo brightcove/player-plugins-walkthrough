@@ -102,7 +102,7 @@ Give the player an id so that we can reference it logically within the page:
 </html>
 ```
 
-Serve your [new html page] up using a webserver and open the web inspector console.  Interact with the player using these
+Serve your [new html page](http://brightcove.github.io/player-plugins-walkthrough/player-stylin.html) up using a webserver and open the web inspector console.  Interact with the player using these
 commands:
 ```javascript
 //Get a reference to the player
