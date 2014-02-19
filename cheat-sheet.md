@@ -3,21 +3,20 @@
 ## Setup
 To follow along, you'll need:
  * A computer
- * A terminal application with [CURL](http://curl.haxx.se)
  * A text editor
  * Familiarity with HTML/CSS/Javascript
  * A webserver capable of hosting and serving html
 
 ## Documentation
  * [Player Service Tour](http://docs.brightcove.com/en/video-cloud/players/guides/playertour.html)
- * [Using CURL](http://curl.haxx.se/docs/manpage.html)
  * [VideoJS Designer](http://designer.videojs.com/)
  * [VideoJS Plugins](https://github.com/videojs/video.js/blob/master/docs/guides/plugins.md)
 
-Curl the in-page embed code for a player and create an HTML file from it:
+Grab the in-page embed code for a player (curl or browser) and create an HTML file from it:
 ```bash
 mkdir ~/workshop
-curl http://players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/in_page.embed > ~/workshop/plugin.html
+touch plugin.html
+curl http://players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/in_page.embed
 ```
 
 Update the html page created to use proper html syntax and size the player with CSS:
