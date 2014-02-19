@@ -17,7 +17,7 @@ To follow along, you'll need:
 Curl the in-page embed code for a player and create an HTML file from it:
 ```bash
 mkdir ~/workshop
-curl http://players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/in_page.embed > ~/workshop/plugin.html
+curl http://players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/in_page.embed > ~/workshop/plugin.html
 ```
 
 Update the html page created to use proper html syntax and size the player with CSS:
@@ -25,7 +25,7 @@ Update the html page created to use proper html syntax and size the player with 
 <!DOCTYPE html>
 <html>
 <head>
-<link href="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.css" rel="stylesheet">
+<link href="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.css" rel="stylesheet">
 <style>
 .video-js{height:360px; width:480px;}
 </style>
@@ -33,36 +33,42 @@ Update the html page created to use proper html syntax and size the player with 
 <body>
 <video
   data-account="1655482059001"
-  data-player="83f4546f-a296-43cb-8872-9c75d1c1cc21"
+  data-player="76c5a59b-c481-4554-b28e-e1fb81eb5ea5"
   data-embed="default"
   data-id=""
   class="video-js" controls></video>
-<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/node_modules/video.js/dist/video-js/video.js"></script>
-<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.js"></script>
+<script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/node_modules/video.js/dist/video-js/video.js"></script>
+<script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.js"></script>
 </body>
 </html>
 ```
 
-Style the "big play" button to make it a "big RED play" button
+Style the "big play button", "progress bar", and volume control to make them orange.
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-<link href="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.css" rel="stylesheet">
+<link href="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.css" rel="stylesheet">
 <style>
 .video-js{height:360px; width:480px;}
-.vjs-big-play-button{background: #ff0000;}
+.vjs-big-play-button {
+  background-color: #ffad00;
+  opacity: 50%;
+}
+.vjs-play-progress, .vjs-volume-level, .vjs-big-play-button {
+  background-color: #ffad00;
+}
 </style>
 </head>
 <body>
 <video
   data-account="1655482059001"
-  data-player="83f4546f-a296-43cb-8872-9c75d1c1cc21"
+  data-player="76c5a59b-c481-4554-b28e-e1fb81eb5ea5"
   data-embed="default"
   data-id=""
   class="video-js" controls></video>
-<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/node_modules/video.js/dist/video-js/video.js"></script>
-<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.js"></script>
+<script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/node_modules/video.js/dist/video-js/video.js"></script>
+<script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.js"></script>
 </body>
 </html>
 ```
@@ -72,30 +78,30 @@ Give the player an id so that we can reference it logically within the page:
 <!DOCTYPE html>
 <html>
 <head>
-<link href="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.css" rel="stylesheet">
+<link href="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.css" rel="stylesheet">
 <style>
 .video-js{height:360px; width:480px;}
-.vjs-big-play-button{background: #ff0000;}
-.vjs-control-bar{background: #ff0000;}
+.vjs-play-progress, .vjs-volume-level, .vjs-big-play-button{
+  background-color: #ffad00;
+}
 </style>
 </head>
 <body>
 <video
   id="player"
   data-account="1655482059001"
-  data-player="83f4546f-a296-43cb-8872-9c75d1c1cc21"
+  data-player="76c5a59b-c481-4554-b28e-e1fb81eb5ea5"
   data-embed="default"
   data-id=""
   class="video-js" controls></video>
-<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/node_modules/video.js/dist/video-js/video.js"></script>
-<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.js"></script>
+<script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/node_modules/video.js/dist/video-js/video.js"></script>
+<script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.js"></script>
 </body>
 </html>
 ```
 
-
-Serve your new page upusing a webserver and open the web inspector console, and use these commands to interact
-with the player:
+Serve your new page upusing a webserver and open the web inspector console.  Interact with the player using these
+commands:
 ```javascript
 //Get a reference to the player
 var player = videojs('player');
@@ -197,11 +203,12 @@ source that file and invoke the plugin in your page.  Your html becomes [this](h
 <!DOCTYPE html>
 <html>
 <head>
-<link href="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.css" rel="stylesheet">
+<link href="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.css" rel="stylesheet">
 <style>
 .video-js{height:360px; width:480px;}
-.vjs-big-play-button{background: #ff0000;}
-.vjs-control-bar{background: #ff0000;}
+.vjs-play-progress, .vjs-volume-level, .vjs-big-play-button{
+  background-color: #ffad00;
+}
 .overlay {
   height:50px; 
   width:480px;
@@ -215,12 +222,12 @@ source that file and invoke the plugin in your page.  Your html becomes [this](h
 <video 
   id="player"
   data-account="1655482059001"
-  data-player="83f4546f-a296-43cb-8872-9c75d1c1cc21"
+  data-player="76c5a59b-c481-4554-b28e-e1fb81eb5ea5"
   data-embed="default"
   data-id=""
   class="video-js" controls></video>
-<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/node_modules/video.js/dist/video-js/video.js"></script>
-<script src="//players.brightcove.com/1655482059001/83f4546f-a296-43cb-8872-9c75d1c1cc21_default/bc.min.js"></script>
+<script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/node_modules/video.js/dist/video-js/video.js"></script>
+<script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.js"></script>
 <script src="./overlay.js"></script>
 <script>
   videojs('player').overlayPlugin();
