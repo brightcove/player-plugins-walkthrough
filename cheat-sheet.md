@@ -43,7 +43,7 @@ Update the html page created to use proper html syntax and size the player with 
 </html>
 ```
 
-Style the "big play button", "progress bar", and volume control to make them orange.
+Style the "big play button", progress bar, and volume control to make them orange.
 ```html
 <!DOCTYPE html>
 <html>
@@ -52,8 +52,7 @@ Style the "big play button", "progress bar", and volume control to make them ora
 <style>
 .video-js{height:360px; width:480px;}
 .vjs-big-play-button {
-  background-color: #ffad00;
-  opacity: 50%;
+  opacity: 0.7;
 }
 .vjs-play-progress, .vjs-volume-level, .vjs-big-play-button {
   background-color: #ffad00;
@@ -81,7 +80,10 @@ Give the player an id so that we can reference it logically within the page:
 <link href="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.css" rel="stylesheet">
 <style>
 .video-js{height:360px; width:480px;}
-.vjs-play-progress, .vjs-volume-level, .vjs-big-play-button{
+.vjs-big-play-button {
+  opacity: 0.7;
+}
+.vjs-play-progress, .vjs-volume-level, .vjs-big-play-button {
   background-color: #ffad00;
 }
 </style>
@@ -100,7 +102,7 @@ Give the player an id so that we can reference it logically within the page:
 </html>
 ```
 
-Serve your new page upusing a webserver and open the web inspector console.  Interact with the player using these
+Serve your [new html page] up using a webserver and open the web inspector console.  Interact with the player using these
 commands:
 ```javascript
 //Get a reference to the player
@@ -206,6 +208,9 @@ source that file and invoke the plugin in your page.  Your html becomes [this](h
 <link href="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.css" rel="stylesheet">
 <style>
 .video-js{height:360px; width:480px;}
+.vjs-big-play-button {
+  opacity: 0.7;
+}
 .vjs-play-progress, .vjs-volume-level, .vjs-big-play-button{
   background-color: #ffad00;
 }

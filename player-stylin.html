@@ -10,13 +10,6 @@
 .vjs-play-progress, .vjs-volume-level, .vjs-big-play-button {
   background-color: #ffad00;
 }
-.overlay {
-  height:50px; 
-  width:480px;
-  text-align:center;
-  font-size:24pt;
-  color: #ff0000;
-}
 </style>
 </head>
 <body>
@@ -29,26 +22,5 @@
   class="video-js" controls></video>
 <script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/node_modules/video.js/dist/video-js/video.js"></script>
 <script src="//players.brightcove.com/1655482059001/76c5a59b-c481-4554-b28e-e1fb81eb5ea5_default/bc.min.js"></script>
-<script>
-  var 
-    player = videojs('player'),
-    overlay = document.createElement('div');
-  overlay.className = 'overlay vjs-hidden';
-  overlay.innerHTML = 'much text';
-  player.on('ended', function() {
-    // if the overlay isn't already showing, show it
-    if (/vjs-hidden/.test(overlay.className)) {
-      overlay.className = overlay.className.replace(/\s?vjs-hidden/, '');
-    }
-    player.el().appendChild(overlay);
-  });
-
-  player.on('playing', function() {
-    // if the overlay isn't already hidden, hide it
-    if (!(/vjs-hidden/).test(overlay.className)) {
-      overlay.className += ' vjs-hidden';
-    }
-  });
-</script>
 </body>
 </html>
