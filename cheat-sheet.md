@@ -136,8 +136,9 @@ Add an overlay to appear on html5 video tag's 'loadstart' event by adding the fo
   height:50px; 
   width:480px;
   text-align:center;
-  font-size:24pt;
+  font-size:32px;
   color: #ff0000;
+  position: absolute;
 }
 ```
 
@@ -219,8 +220,9 @@ source this file and invoke the plugin.  Your html becomes [this](http://brightc
   height:50px; 
   width:480px;
   text-align:center;
-  font-size:24pt;
+  font-size:32px;
   color: #ff0000;
+  position: absolute;
 }
 </style>
 </head>
