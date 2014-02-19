@@ -244,4 +244,7 @@ source this file and invoke the plugin.  Your html becomes [this](http://brightc
 </html>
 ```
 
-Now you've got a re-usable videoJS plugin that can be added to any Brightcove player.
+Now you've got a re-usable videoJS plugin that can be added to any Brightcove player.  Before you get started
+creating your own, check out some of the [plugins](https://github.com/videojs/video.js/wiki/Plugins) which have 
+already been created by the videoJS community.  You'll notice plugins are already available for endcards and image 
+overlays. Have fun creating!
